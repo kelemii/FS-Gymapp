@@ -2,19 +2,25 @@ import pg from "pg";
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 
 const app = express();
-const port = 3000;
+
+const port = process.env.port || 3000;
 const pool = new pg.Pool({
   database: "gymbros",
-  port: 5432,
 });
+
 app.use(morgan("combined"));
 app.use(cors()); //idk what this does
 app.use(express.json());
 app.use(express.static("client"));
 
 //CRUD stuff
+
 //get all
 app.get("/bros", (req, res) => {
   pool.query("SELECT * FROM bros").then((result) => {
@@ -66,9 +72,9 @@ app.patch("/bros/:id", (req, res) => {
       if (result.rows.length === 0) {
         res.sendStatus(404);
       } else {
-          res.send(result.rows[0]);
-        }
         res.send(result.rows[0]);
+      }
+      res.send(result.rows[0]);
     });
 });
 //delete
