@@ -14,8 +14,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const pool = new pg.Pool({
   // database: "gymbros"
-    connectionString: DATABASE_URL
-    // ssl: NODE_ENV === "production" ? {rejectUnauthorized: false } : false,
+    connectionString: DATABASE_URL,
+    ssl: NODE_ENV === "production" ? {rejectUnauthorized: false } : false,
 });
 
 app.use(morgan("combined"));
