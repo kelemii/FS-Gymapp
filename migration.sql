@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS gyms CASCADE;
-DROP TABLE IF EXISTS bros;
+DROP TABLE IF EXISTS bros CASCADE;
+DROP TABLE IF EXISTS gym_bros CASCADE;
 
 CREATE TABLE gyms (
     id SERIAL PRIMARY KEY,
@@ -41,4 +42,7 @@ INSERT INTO bros (firstname, lastname, address, email, gym_id) VALUES ('Daniel',
 INSERT INTO bros (firstname, lastname, address, email, gym_id) VALUES ('Ecyce', 'Headache', '305 Fever Street', 'medicineisnice@youtube.com', 1);
 INSERT INTO bros (firstname, lastname, address, email, gym_id) VALUES ('Chris', 'Wallit', '15 Driftwood Drive', 'Chrisdrifts@tv.com', 1);
 INSERT INTO bros (firstname, lastname, address, email, gym_id) VALUES ('Victor', 'Harody', '671 Park Way', 'ipwnnoobs@apple.net', 1);
+
+
+-- heroku pg:psql -f migration.sql 
 

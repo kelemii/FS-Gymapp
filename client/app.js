@@ -1,22 +1,15 @@
 const $bros = $('.brosbtn');
 const $results = $('.results');
 
-
-
-// for reference
-// const $container = $(".container");
-// const $loadTweets = $(".loadTweets");
-// const $userTweets = $(".userTweets");
-// const $tweedle = $(".tweedle");
-
-// $tweedle.click(() => {
-//   let username = prompt('What name do you go by?');
-//   let tweedleText = prompt('Type your message here.');
-// });
-$bros.click(() => {
-    $.get("/bros", (res) => {
-        $results.text(JSON.stringify(res));
-        console.log(res);
+    $bros.click(() => {
+        $results.html('<ul class="brolist">Query Results:</ul>');
+        $.get("/bros", (res) => {
+        const $list = $('.brolist');
+        for (let i=0;i<res.length;i++){
+            let current = res[i];
+            const { id, firstname, lastname, address, email, gym_id } = current;
+            const $bro = $(`<li>ID:${id} Name: ${firstname} ${lastname} Address: ${address} Email: ${email} ${gym_id}</li>`).appendTo($list);
+        }
     })
 });
 

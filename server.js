@@ -6,12 +6,16 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const { DATABASE_URL, NODE_ENV, PORT} = process.env;
+
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const pool = new pg.Pool({
-  database: "gymbros",
+  database: "gymbros"
+    // connectionString: DATABASE_URL,
+    // ssl: NODE_ENV === "production" ? {rejectUnauthorized: false } : false,
 });
 
 app.use(morgan("combined"));
