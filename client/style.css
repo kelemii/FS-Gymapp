@@ -1,10 +1,32 @@
 body{
   background: grey;
 }
+table, th, td {
+  border: 2px solid black;
+  overflow: hidden;
+}
 .topnav {
     background-color: #333;
     overflow: hidden;
+    position: fixed;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    width:100%;
   }
+.resultcontainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  top: 60px;
+  left: 30%;
+  right: 30%;
+}
+.results {
+  justify-content: space-evenly;
+}
+
   
   /* Style the links inside the navigation bar */
   .topnav a {
@@ -29,12 +51,28 @@ body{
   }
 
   .queries {
-    width:fit-content;
-    height:fit-content;
+    position: fixed;
+    top: 59px;
+    left: 8px;
+    width: 15%;
+    display:grid;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: max-content;
+    height: min-content;
+    background-color: #333;
   }
-  .results {
-    background-color: grey;
+  .queries button {
+    color: #f2f2f2;
     text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  table {
+    width: 100%;
   }
 
 
@@ -49,11 +87,11 @@ body{
   border: none;
   background: #f1f1f1;
 }
-
+/* 
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
-}
+} */
 
 hr {
   border: 1px solid #f1f1f1;
@@ -91,6 +129,12 @@ button:hover {
 /* Add padding to container elements */
 .container {
   padding: 16px;
+  justify-content: center;
+  border: 1px solid white;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  width: 95%;
 }
 
 /* Clear floats */

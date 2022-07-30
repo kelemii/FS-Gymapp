@@ -13,7 +13,7 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 const pool = new pg.Pool({
-  // database: "gymbros"
+  // database: "gymbros",
     connectionString: DATABASE_URL,
     ssl: NODE_ENV === "production" ? {rejectUnauthorized: false } : false,
 });
@@ -24,7 +24,11 @@ app.use(express.json());
 app.use(express.static("client"));
 
 //CRUD stuff
-
+app.get("/gyms", (req, res) => {
+  pool.query("SELECT * FROM gyms").then((result) => {
+    res.send(result.rows);
+  });
+});
 //get all
 app.get("/bros", (req, res) => {
   pool.query("SELECT * FROM bros").then((result) => {

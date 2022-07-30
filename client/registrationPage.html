@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="app.js"></script>
     <title>Gym Registration</title>
 </head>
 <body>
@@ -14,29 +16,32 @@
         <a type="submit" class="active" href="./registrationPage.html">Register</a>
         <a type="submit" class="about" href="./about.html">About</a>
       </div>
-    <form action="action_page.php" style="border:1px solid #ccc">
+    <form id="regForm">
         <div class="container">
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>
           <hr>
 
-          <label for="fname">First name:</label>
+          <!-- <label for="fname">First name:</label> -->
           <input type="text" placeholder="Enter First Name" id="fname" name="fname" required>
 
-          <label for="lname">Last name:</label>
+          <!-- <label for="lname">Last name:</label> -->
           <input type="text" placeholder="Enter Last Name" id="lname" name="lname" required>
       
-          <label for="address">Street Address:</label>
+          <!-- <label for="address">Street Address:</label> -->
           <input type="text" placeholder="Enter Street Address" id="address" name="address" required>
 
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <!-- <label for="email"><b>Email</b></label> -->
+          <input type="text" placeholder="Enter Email" id="address" name="email" required>
       
       
           <label for="gyms">Choose a gym to register for:</label>
 
           <select name="gyms" id="gyms">
               <option>Please Select</option>
+              <option value="chad">Chad's House</option>
+              <option value="chad">Chad's House</option>
+              <option value="chad">Chad's House</option>
               <option value="chad">Chad's House</option> -->
               <!-- FUTURE GYMS HERE -->
               <!-- <option value="saab">Saab</option> -->
