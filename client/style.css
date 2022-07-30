@@ -27,11 +27,11 @@ table, th, td {
   justify-content: space-evenly;
 }
 #troll {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  right: 50%;
-  bottom: 50%;
+  top: 100px;
+  left: 42%;
+  right: 37%;
 }
 
   
