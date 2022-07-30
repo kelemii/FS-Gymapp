@@ -2,9 +2,9 @@ const $bros = $(".brosbtn");
 const $results = $(".results");
 const $gyms = $(".gymsbtn");
 const $reset = $(".reset");
-const $registration = $('.container');
-const $formData = $('#regForm');
-const $signup = $('.signupbtn');
+const $registration = $(".container");
+const $formData = $("#regForm");
+const $signup = $(".signupbtn");
 
 // test
 // function setAction(form) {
@@ -12,30 +12,34 @@ const $signup = $('.signupbtn');
 //     alert(form.action);
 //     return false;
 //   }
-
-
+//"INSERT INTO bros (firstname, lastname, address, email, gym_id) VALUES ($1, $2, $3, $4, $5) RETURNING*;",
 // end of test
 $signup.click(() => {
-    let info = {
-        firstname:$('#fname').val(),
-        lastname:$('#lname').val(),
-        address:$('#address').val(),
-        email:$('#email').val()
-    };
-    console.log(info);
+    const info = {
+    firstname: $("#fname").val(),
+    lastname: $("#lname").val(),
+    address: $("#address").val(),
+    email: $("#email").val(),
+    gym_id: 1,
+  };
+  const stringy = JSON.stringify(info);
+
+  $.post("/bros", (stringy), () => {
+    console.log(stringy);
+  });
 });
 
 //all bros
 $bros.click(() => {
   $.get("/bros", (res) => {
-    $results.html('<h3>Query results:</h3>');
+    $results.html("<h3>Query results:</h3>");
     const $etup = $(
-        `<tr>
+      `<tr>
         <th><b>Full Name</b></th>
         <th><b>Address</b></th>
         <th><b>Email</b></th>
         <th><b>Gym</b></th></tr>`
-      ).appendTo($results);
+    ).appendTo($results);
     for (let i = 0; i < res.length; i++) {
       let current = res[i];
       const { id, firstname, lastname, address, email, gym_id } = current;
@@ -51,13 +55,13 @@ $bros.click(() => {
 });
 //all gyms
 $gyms.click(() => {
-  $results.html('<h3>Query Results:</h3>');
+  $results.html("<h3>Query Results:</h3>");
   $.get("/gyms", (res) => {
     const $gymresults = $(
-        `<tr>
+      `<tr>
         <td><b>Name</b></td>
         <td><b>Address</b></td>`
-      ).appendTo($results);
+    ).appendTo($results);
     for (let i = 0; i < res.length; i++) {
       let current = res[i];
       const { name, address } = current;
